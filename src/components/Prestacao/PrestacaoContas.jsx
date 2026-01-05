@@ -21,8 +21,8 @@ export default function PrestacaoContas({ user, onLogout }) {
   const carregarLancamentos = async () => {
     setLoading(true);
     try {
-      const resultado = await buscarLancamentos();
-      setLancamentos(resultado.sucesso ? resultado.lancamentos : []);
+      const dados = await buscarLancamentos(); // alteração aqui
+      setLancamentos(dados);
     } catch (erro) {
       console.error('Erro ao buscar lançamentos:', erro);
       setLancamentos([]);

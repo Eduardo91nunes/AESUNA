@@ -1,47 +1,46 @@
-import {
-  collection,
-  addDoc,
-  getDocs,
-  query,
-  orderBy,
-  Timestamp
-} from 'firebase/firestore';
+import { collection, addDoc, getDocs, deleteDoc, updateDoc, doc } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 
-import { db } from '../firebaseConfig';
-
-/* ================== SALVAR LANÇAMENTO ================== */
-export const salvarLancamento = async (dados) => {
+// Salvar novo lançamento
+export const salvarLancamento = async (lancamento) => {
   try {
-    await addDoc(collection(db, 'lancamentos'), {
-      ...dados,
-      criadoEm: Timestamp.now(),
-    });
-
+    await addDoc(collection(db, "lancamentos"), lancamento);
     return { sucesso: true };
-  } catch (erro) {
-    console.error('Erro ao salvar lançamento:', erro);
-    return { sucesso: false, mensagem: 'Erro ao salvar lançamento' };
+  } catch (error) {
+    console.error("Erro ao salvar lançamento:", error);
+    return { sucesso: false, mensagem: error.message };
   }
 };
 
-/* ================== BUSCAR LANÇAMENTOS ================== */
+// Buscar todos os lançamentos
 export const buscarLancamentos = async () => {
   try {
-    const q = query(
-      collection(db, 'lancamentos'),
-      orderBy('data', 'desc')
-    );
+    const snapshot = await getDocs(collection(db, "lancamentos"));
+    return snapshot.docs.map(docSnap => ({ id: docSnap.id, ...docSnap.data() }));
+  } catch (error) {
+    console.error("Erro ao buscar lançamentos:", error);
+    return [];
+  }
+};
 
-    const snapshot = await getDocs(q);
+// Deletar lançamento pelo ID
+export const deletarLancamento = async (id) => {
+  try {
+    await deleteDoc(doc(db, "lancamentos", id));
+    return { sucesso: true };
+  } catch (error) {
+    console.error("Erro ao deletar lançamento:", error);
+    return { sucesso: false, mensagem: error.message };
+  }
+};
 
-    const lancamentos = snapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }));
-
-    return { sucesso: true, lancamentos };
-  } catch (erro) {
-    console.error('Erro ao buscar lançamentos:', erro);
-    return { sucesso: false, lancamentos: [] };
+// Atualizar lançamento pelo ID
+export const atualizarLancamento = async (id, dadosAtualizados) => {
+  try {
+    await updateDoc(doc(db, "lancamentos", id), dadosAtualizados);
+    return { sucesso: true };
+  } catch (error) {
+    console.error("Erro ao atualizar lançamento:", error);
+    return { sucesso: false, mensagem: error.message };
   }
 };
