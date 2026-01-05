@@ -1,0 +1,287 @@
+.tela-feedbacks-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #fef3c7, #fde68a);
+  padding-bottom: 32px;
+}
+
+.header {
+  background-color: #b91c1c;
+  color: white;
+  padding: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.botao-voltar-header {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.botao-voltar-header:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.logo-mini {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b91c1c;
+  font-weight: bold;
+  font-size: 12px;
+  object-fit: cover;
+}
+
+.header h1 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-info {
+  text-align: right;
+  font-size: 12px;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.botao-sair {
+  background: none;
+  color: #fef3c7;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 4px;
+  transition: color 0.3s ease;
+}
+
+.botao-sair:hover {
+  color: white;
+}
+
+.feedbacks-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.info-usuario {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  border-left: 4px solid #1e40af;
+}
+
+.info-usuario p {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 4px;
+}
+
+.lista-container {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+}
+
+.lista-titulo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #7f1d1d;
+  margin-bottom: 16px;
+}
+
+.mensagem-vazia {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  color: #9ca3af;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lista-feedbacks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feedback-item {
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid;
+}
+
+.feedback-item.reclamacao {
+  background-color: #fef2f2;
+  border-left-color: #dc2626;
+}
+
+.feedback-item.elogio {
+  background-color: #f0fdf4;
+  border-left-color: #16a34a;
+}
+
+.feedback-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.feedback-info {
+  flex: 1;
+}
+
+.feedback-author {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.feedback-university {
+  display: inline-block;
+  background-color: #fef08a;
+  color: #78350f;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.feedback-timestamp {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+.feedback-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.feedback-badge.reclamacao {
+  background-color: #fee2e2;
+  color: #7f1d1d;
+}
+
+.feedback-badge.elogio {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.feedback-message {
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .header-content {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .logo-header {
+    width: 100%;
+  }
+
+  .user-info {
+    width: 100%;
+    text-align: left;
+  }
+
+  .feedbacks-content {
+    padding: 12px;
+  }
+
+  .lista-container {
+    padding: 16px;
+  }
+
+  .lista-titulo {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 12px;
+  }
+
+  .header h1 {
+    font-size: 14px;
+  }
+
+  .logo-mini {
+    width: 32px;
+    height: 32px;
+    font-size: 10px;
+  }
+
+  .botao-voltar-header {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+
+  .feedbacks-content {
+    padding: 8px;
+  }
+
+  .lista-container {
+    padding: 12px;
+  }
+
+  .feedback-item {
+    padding: 12px;
+  }
+
+  .feedback-author {
+    font-size: 13px;
+  }
+
+  .feedback-message {
+    font-size: 13px;
+  }
+}

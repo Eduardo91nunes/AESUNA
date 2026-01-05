@@ -1,0 +1,166 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #b71c1c;
+  padding: 10px 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* Logo */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.navbar-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.navbar-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Links desktop */
+.navbar-center {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-center a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar-center a:hover {
+  text-decoration: underline;
+}
+
+/* Usuário desktop */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-usuario {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.navbar-sair {
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navbar-sair:hover {
+  text-decoration: underline;
+}
+
+/* Hamburger mobile */
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.navbar-hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.navbar-hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile dropdown */
+.navbar-center-mobile {
+  display: none;
+  flex-direction: column;
+  list-style: none;
+  background-color: #b71c1c;
+  padding: 10px 0;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 200px;
+  border-radius: 0 0 5px 5px;
+}
+
+.navbar-center-mobile li {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.navbar-center-mobile li:last-child {
+  border-bottom: none;
+}
+
+.navbar-center-mobile a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-center-mobile a:hover {
+  text-decoration: underline;
+}
+
+.navbar-center-mobile.active {
+  display: flex;
+}
+
+/* Usuário mobile */
+.navbar-center-mobile .mobile-usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.navbar-center-mobile .mobile-usuario button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navbar-center-mobile .mobile-usuario button:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar-center { display: none; }  /* Links desktop escondidos */
+  .navbar-right { display: none; }  /* Usuário desktop escondido */
+  .navbar-hamburger { display: flex; }  /* Mostra hambúrguer */
+}
