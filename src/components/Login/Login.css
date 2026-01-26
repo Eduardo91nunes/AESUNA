@@ -8,6 +8,7 @@
 }
 
 .login-box {
+  position: relative;
   width: 100%;
   max-width: 400px;
   background: white;
@@ -16,32 +17,35 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo */
 .logo-section {
   text-align: center;
   margin-bottom: 30px;
 }
 
 .logo-frame {
-  display: inline-block;
-  padding: 0;
-  background: white;
-  border-radius: 8px;
-  border: 4px solid #b91c1c;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 144px;
   height: 144px;
+  margin: 0 auto 16px;
+  border: 4px solid #b91c1c;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 4px;
+  object-fit: contain; /* 🔥 ajuste principal */
   display: block;
 }
 
+/* Textos */
 .titulo-principal {
   font-size: 32px;
   font-weight: bold;
@@ -54,6 +58,7 @@
   color: #4b5563;
 }
 
+/* Formulário */
 .formulario-login {
   background: white;
   border-radius: 8px;
@@ -76,7 +81,6 @@
   border-radius: 6px;
   font-size: 14px;
   margin-bottom: 12px;
-  transition: border-color 0.3s ease;
 }
 
 .input-campo:focus {
@@ -91,8 +95,6 @@
   color: white;
   font-weight: bold;
   border-radius: 6px;
-  transition: background-color 0.3s ease;
-  margin-bottom: 12px;
   border: none;
   cursor: pointer;
 }
@@ -101,6 +103,7 @@
   background-color: #991b1b;
 }
 
+/* Cadastro */
 .link-cadastro {
   text-align: center;
 }
@@ -113,41 +116,37 @@
 
 .botao-link {
   background: none;
+  border: none;
   color: #b91c1c;
   font-weight: bold;
   font-size: 14px;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  border: none;
   cursor: pointer;
-  padding: 0;
 }
 
 .botao-link:hover {
   color: #991b1b;
 }
 
-/* Responsivo */
-@media (max-width: 480px) {
-  .login-box {
-    padding: 20px 15px;
-  }
-
-  .logo {
-    width: 80px;
-    height: 80px;
-  }
-
-  .titulo-principal {
-    font-size: 28px;
-  }
-
-  .formulario-login {
-    padding: 16px;
-  }
+/* Esqueceu senha */
+.esqueci-senha-container {
+  margin-top: 16px;
+  text-align: center;
 }
 
-/* Botão de fechar */
+.botao-esqueci-senha {
+  background: none;
+  border: none;
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.botao-esqueci-senha:hover {
+  text-decoration: underline;
+}
+
+/* Botão fechar */
 .botao-fechar {
   position: absolute;
   top: 10px;
@@ -158,9 +157,25 @@
   font-weight: bold;
   cursor: pointer;
   color: #b91c1c;
-  transition: color 0.2s ease;
 }
 
-.botao-fechar:hover {
-  color: #991b1b;
+/* Responsivo */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px 15px;
+  }
+
+  .logo-frame {
+    width: 96px;
+    height: 96px;
+    border-width: 3px;
+  }
+
+  .titulo-principal {
+    font-size: 26px;
+  }
+
+  .formulario-login {
+    padding: 16px;
+  }
 }

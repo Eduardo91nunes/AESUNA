@@ -21,7 +21,7 @@ export default function Navbar({ user }) {
     }
   };
 
-  // ✅ PRIORIDADE: displayName → Firestore name → email
+
   const nomeUsuario =
     user?.displayName ||
     user?.name ||

@@ -44,8 +44,7 @@ export default function Lancamentos({ user, onLogout }) {
     setArquivos([...arquivos, ...validos]);
   };
 
-  const removerArquivo = (index) => setArquivos(arquivos.filter((_, i) => i !== index));
-
+  
   const handleSubmit = async () => {
     if (!naturezaLancamento || !tipoLancamento || !descricao || !valor || !data) {
       return alert('Preencha todos os campos obrigatórios!');

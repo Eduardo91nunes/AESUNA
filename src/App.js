@@ -46,7 +46,7 @@ export default function App() {
 
   /* ================== FEEDBACK ================== */
   const [category, setCategory] = useState('reclamacao');
-  const [anonymous, setAnonymous] = useState(true);
+  const [anonymous] = useState(true);
   const [message, setMessage] = useState('');
 
   /* ================== FUNÇÃO CENTRAL ================== */
