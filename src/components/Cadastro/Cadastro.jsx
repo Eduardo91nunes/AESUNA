@@ -26,16 +26,13 @@ export default function Cadastro({ onVoltar, onCadastro }) {
     }
 
     try {
-      // 1️⃣ Criar usuário no Firebase Auth
       const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
       const user = userCredential.user;
 
-      // 2️⃣ Salvar nome no Auth (displayName)
       await updateProfile(user, {
         displayName: nome,
       });
 
-      // 3️⃣ Criar documento no Firestore
       await setDoc(doc(db, "usuarios", user.uid), {
         nome,
         email,
@@ -44,11 +41,9 @@ export default function Cadastro({ onVoltar, onCadastro }) {
         criadoEm: new Date(),
       });
 
-      // Mostra toast de sucesso
       showToast("Conta criada com sucesso!", "sucesso");
       limparCampos();
 
-      // Chama função para redirecionar para tela inicial
       if (onCadastro) onCadastro();
 
     } catch (error) {
@@ -104,14 +99,43 @@ export default function Cadastro({ onVoltar, onCadastro }) {
             />
           </div>
 
+          {/* FACULDADE RADIO */}
           <div className="campo-formulario campo-faculdade">
             <label>Faculdade</label>
-            <input
-              type="text"
-              placeholder="Ex: Universidade Federal"
-              value={faculdade}
-              onChange={(e) => setFaculdade(e.target.value)}
-            />
+
+            <div className="opcoes-faculdade">
+
+              <input
+                type="radio"
+                id="uniatenas"
+                name="faculdade"
+                value="Uniatenas"
+                checked={faculdade === "Uniatenas"}
+                onChange={(e) => setFaculdade(e.target.value)}
+              />
+              <label htmlFor="uniatenas">Uniatenas</label>
+
+              <input
+                type="radio"
+                id="finom"
+                name="faculdade"
+                value="Finom"
+                checked={faculdade === "Finom"}
+                onChange={(e) => setFaculdade(e.target.value)}
+              />
+              <label htmlFor="finom">Finom</label>
+
+              <input
+                type="radio"
+                id="iftm"
+                name="faculdade"
+                value="IFTM"
+                checked={faculdade === "IFTM"}
+                onChange={(e) => setFaculdade(e.target.value)}
+              />
+              <label htmlFor="iftm">IFTM</label>
+
+            </div>
           </div>
 
           <div className="campo-formulario">

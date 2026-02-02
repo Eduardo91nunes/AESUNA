@@ -28,12 +28,6 @@
   margin-bottom: 8px;
 }
 
-.info-autenticacao {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 16px;
-}
-
 .campo-formulario {
   margin-bottom: 12px;
 }
@@ -46,7 +40,9 @@
   margin-bottom: 6px;
 }
 
-.campo-formulario input {
+.campo-formulario input[type="text"],
+.campo-formulario input[type="email"],
+.campo-formulario input[type="password"] {
   width: 100%;
   padding: 12px;
   border: 2px solid #d1d5db;
@@ -60,18 +56,45 @@
   border-color: #dc2626;
 }
 
-.campo-formulario input:disabled {
-  background-color: #f3f4f6;
-  cursor: not-allowed;
-}
-
-.label-obrigatorio {
-  color: #dc2626;
-}
+/* ===== FACULDADE RADIO ===== */
 
 .campo-faculdade {
   margin-bottom: 16px;
 }
+
+.opcoes-faculdade {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.opcoes-faculdade input[type="radio"] {
+  display: none;
+}
+
+.opcoes-faculdade label {
+  display: block;
+  padding: 10px 12px;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.opcoes-faculdade label:hover {
+  border-color: #dc2626;
+}
+
+.opcoes-faculdade input[type="radio"]:checked + label {
+  border-color: #dc2626;
+  background-color: #fee2e2;
+  font-weight: 600;
+}
+
+/* ===== BOTÕES ===== */
 
 .botoes-cadastro {
   display: flex;
@@ -110,6 +133,8 @@
 .botao-voltar:hover {
   color: #b91c1c;
 }
+
+/* ===== TOAST ===== */
 
 .toast {
   position: absolute;
