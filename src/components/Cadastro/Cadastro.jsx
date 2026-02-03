@@ -10,6 +10,7 @@ export default function Cadastro({ onVoltar, onCadastro }) {
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const [faculdade, setFaculdade] = useState("");
+  const [faculdadeOutro, setFaculdadeOutro] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [tipoToast, setTipoToast] = useState("sucesso");
   const [mostraToast, setMostraToast] = useState(false);
@@ -26,7 +27,11 @@ export default function Cadastro({ onVoltar, onCadastro }) {
     }
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        senha
+      );
       const user = userCredential.user;
 
       await updateProfile(user, {
@@ -45,7 +50,6 @@ export default function Cadastro({ onVoltar, onCadastro }) {
       limparCampos();
 
       if (onCadastro) onCadastro();
-
     } catch (error) {
       console.error("Erro ao criar conta:", error);
       showToast("Erro ao criar conta: " + error.message, "erro");
@@ -65,6 +69,7 @@ export default function Cadastro({ onVoltar, onCadastro }) {
     setSenha("");
     setConfirmarSenha("");
     setFaculdade("");
+    setFaculdadeOutro("");
   };
 
   return (
@@ -99,12 +104,11 @@ export default function Cadastro({ onVoltar, onCadastro }) {
             />
           </div>
 
-          {/* FACULDADE RADIO */}
+          {/* FACULDADE */}
           <div className="campo-formulario campo-faculdade">
-            <label>Faculdade</label>
+            <label>Escolha sua Faculdade</label>
 
             <div className="opcoes-faculdade">
-
               <input
                 type="radio"
                 id="uniatenas"
@@ -135,6 +139,32 @@ export default function Cadastro({ onVoltar, onCadastro }) {
               />
               <label htmlFor="iftm">IFTM</label>
 
+              {/* OUTRO */}
+              <input
+                type="radio"
+                id="outro"
+                name="faculdade"
+                value="Outro"
+                checked={faculdade === "Outro"}
+                onChange={() => {
+                  setFaculdade("Outro");
+                  setFaculdadeOutro("");
+                }}
+              />
+              <label htmlFor="outro">Outro</label>
+
+              {faculdade === "Outro" && (
+                <input
+                  type="text"
+                  className="input-outro"
+                  placeholder="Outro (ex: Nome da faculdade)"
+                  value={faculdadeOutro}
+                  onChange={(e) => {
+                    setFaculdadeOutro(e.target.value);
+                    setFaculdade(e.target.value);
+                  }}
+                />
+              )}
             </div>
           </div>
 
