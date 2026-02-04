@@ -9,7 +9,7 @@ import { db } from './firebaseConfig';
 // ========== ENVIAR FEEDBACK ==========
 export const enviarFeedback = async (feedback) => {
   try {
-    console.log('Enviando feedback:', feedback);
+    
     const docRef = await addDoc(collection(db, 'feedbacks'), {
       author: feedback.author,
       university: feedback.university,
@@ -20,7 +20,7 @@ export const enviarFeedback = async (feedback) => {
       criadoEm: serverTimestamp()
     });
 
-    console.log('Feedback enviado com sucesso:', docRef.id);
+    
     return {
       sucesso: true,
       id: docRef.id,
@@ -39,16 +39,16 @@ export const enviarFeedback = async (feedback) => {
 // ========== BUSCAR TODOS OS FEEDBACKS ==========
 export const buscarFeedbacks = async () => {
   try {
-    console.log('Buscando feedbacks...');
+    
     
     const querySnapshot = await getDocs(collection(db, 'feedbacks'));
-    console.log('Snapshot recebido, total de docs:', querySnapshot.size);
+    
     
     const feedbacks = [];
 
     querySnapshot.forEach((doc) => {
       const dados = doc.data();
-      console.log('Processando feedback:', doc.id, dados);
+      
       
       let timestamp = 'Data desconhecida';
       if (dados.criadoEm) {
@@ -65,7 +65,7 @@ export const buscarFeedbacks = async () => {
       });
     });
 
-    console.log('Feedbacks processados:', feedbacks);
+    
     return {
       sucesso: true,
       feedbacks: feedbacks
@@ -84,7 +84,7 @@ export const buscarFeedbacks = async () => {
 // ========== FORMATAR DATA ==========
 const formatarData = (data) => {
   try {
-    console.log('Formatando data:', data, typeof data);
+    
     
     let dataObj = data;
     

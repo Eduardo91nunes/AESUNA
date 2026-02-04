@@ -7,16 +7,16 @@ import { db } from './firebaseConfig';
 // ========== BUSCAR TODOS OS ASSOCIADOS ==========
 export const buscarAssociados = async () => {
   try {
-    console.log('Buscando associados...');
+    
 
     const querySnapshot = await getDocs(collection(db, 'usuarios'));
-    console.log('Snapshot recebido, total de associados:', querySnapshot.size);
+    
 
     const associados = [];
 
     querySnapshot.forEach((doc) => {
       const dados = doc.data();
-      console.log('Processando associado:', doc.id, dados);
+      
 
       associados.push({
         id: doc.id,
@@ -31,7 +31,7 @@ export const buscarAssociados = async () => {
     // ✅ Ordenar por nome manualmente (evita erro de índice no Firestore)
     associados.sort((a, b) => a.nome.localeCompare(b.nome));
 
-    console.log('Associados processados:', associados);
+    
 
     return {
       sucesso: true,
