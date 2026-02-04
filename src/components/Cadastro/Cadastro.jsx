@@ -16,7 +16,10 @@ export default function Cadastro({ onVoltar, onCadastro }) {
   const [mostraToast, setMostraToast] = useState(false);
 
   const handleCadastro = async () => {
-    if (!nome || !email || !faculdade || !senha || !confirmarSenha) {
+    const faculdadeFinal =
+      faculdade === "Outro" ? faculdadeOutro : faculdade;
+
+    if (!nome || !email || !faculdadeFinal || !senha || !confirmarSenha) {
       showToast("Preencha todos os campos!", "erro");
       return;
     }
@@ -41,7 +44,7 @@ export default function Cadastro({ onVoltar, onCadastro }) {
       await setDoc(doc(db, "usuarios", user.uid), {
         nome,
         email,
-        faculdade,
+        faculdade: faculdadeFinal,
         metodo: "manual",
         criadoEm: new Date(),
       });
@@ -146,10 +149,7 @@ export default function Cadastro({ onVoltar, onCadastro }) {
                 name="faculdade"
                 value="Outro"
                 checked={faculdade === "Outro"}
-                onChange={() => {
-                  setFaculdade("Outro");
-                  setFaculdadeOutro("");
-                }}
+                onChange={() => setFaculdade("Outro")}
               />
               <label htmlFor="outro">Outro</label>
 
@@ -157,12 +157,9 @@ export default function Cadastro({ onVoltar, onCadastro }) {
                 <input
                   type="text"
                   className="input-outro"
-                  placeholder="Outro (ex: Nome da faculdade)"
+                  placeholder="Digite o nome da faculdade"
                   value={faculdadeOutro}
-                  onChange={(e) => {
-                    setFaculdadeOutro(e.target.value);
-                    setFaculdade(e.target.value);
-                  }}
+                  onChange={(e) => setFaculdadeOutro(e.target.value)}
                 />
               )}
             </div>
