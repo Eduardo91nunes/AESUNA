@@ -1,70 +1,225 @@
-# Getting Started with Create React App
+# 📢 AESUNA — Portal de Reclamações e Elogios
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sistema web desenvolvido para a **AESUNA**, com o objetivo de disponibilizar um canal digital para registro e gerenciamento de **reclamações, elogios e feedbacks**.
 
-## Available Scripts
+O projeto foi desenvolvido utilizando **React.js**, proporcionando uma interface simples, intuitiva e responsiva para que usuários possam registrar suas manifestações de forma organizada.
 
-In the project directory, you can run:
+## 📌 Sobre o Projeto
 
-### `npm start`
+O **Portal AESUNA** foi desenvolvido como uma solução para facilitar a comunicação entre estudantes e a instituição.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Através do sistema, os usuários podem realizar seu cadastro, acessar a plataforma e registrar manifestações relacionadas à instituição, podendo escolher diferentes categorias e optar pelo envio de forma identificada ou anônima.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Funcionalidades
 
-### `npm test`
+* 🔐 Sistema de autenticação
+* 📝 Cadastro de usuários
+* 👤 Identificação do usuário
+* 📢 Cadastro de reclamações
+* 👍 Cadastro de elogios
+* 🏷️ Classificação por categoria
+* 🕵️ Possibilidade de envio anônimo
+* 📋 Registro das manifestações
+* 📱 Interface responsiva
+* 🔒 Controle de acesso aos dados
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🖥️ Funcionamento
 
-### `npm run build`
+O fluxo principal da aplicação consiste em:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```text
+Usuário
+   ↓
+Cadastro / Login
+   ↓
+Acesso ao Portal
+   ↓
+Preenchimento da manifestação
+   ↓
+Escolha da categoria
+   ↓
+Identificado ou Anônimo
+   ↓
+Envio do Feedback
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠️ Tecnologias Utilizadas
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Front-end
 
-### `npm run eject`
+* **React.js**
+* **JavaScript**
+* **HTML5**
+* **CSS3**
+* **React Router**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Backend / Serviços
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* **Firebase Authentication**
+* **Firebase Firestore**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+O Firebase é utilizado para autenticação dos usuários e armazenamento dos dados das manifestações.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📂 Estrutura do Projeto
 
-## Learn More
+```text
+AESUNA-BACKUP/
+│
+├── public/
+│   └── ...
+│
+├── src/
+│   ├── Components/
+│   ├── Pages/
+│   ├── ...
+│   ├── App.js
+│   └── index.js
+│
+├── .gitignore
+├── package.json
+├── package-lock.json
+└── README.md
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> A estrutura pode ser atualizada conforme novas funcionalidades forem adicionadas ao projeto.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🚀 Como Executar o Projeto
 
-### Code Splitting
+### Pré-requisitos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Para executar o projeto localmente, é necessário ter instalado:
 
-### Analyzing the Bundle Size
+* [Node.js](https://nodejs.org/)
+* npm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 1. Clone o repositório
 
-### Making a Progressive Web App
+```bash
+git clone https://github.com/Eduardo91nunes/AESUNA-BACKUP.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 2. Acesse a pasta
 
-### Advanced Configuration
+```bash
+cd AESUNA-BACKUP
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 3. Instale as dependências
 
-### Deployment
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 4. Execute a aplicação
 
-### `npm run build` fails to minify
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+A aplicação será executada localmente em:
+
+```text
+http://localhost:3000
+```
+
+## 🔥 Configuração do Firebase
+
+Para executar o projeto corretamente, é necessário configurar um projeto no **Firebase** e fornecer as credenciais da aplicação.
+
+A configuração deve ser mantida em variáveis de ambiente ou em um arquivo de configuração que **não seja versionado no GitHub**.
+
+Exemplo:
+
+```env
+REACT_APP_FIREBASE_API_KEY=sua_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=seu_projeto.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=seu_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=seu_project_id.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=seu_sender_id
+REACT_APP_FIREBASE_APP_ID=seu_app_id
+```
+
+⚠️ **Importante:** nunca publique chaves, senhas ou credenciais privadas diretamente no repositório.
+
+## 🗃️ Estrutura dos Dados
+
+O sistema utiliza o Firebase Firestore para armazenar informações dos usuários e manifestações.
+
+### Usuários
+
+Exemplo de informações:
+
+```text
+usuarios
+├── nome
+├── email
+├── faculdade
+└── ...
+```
+
+### Feedbacks
+
+As manifestações podem armazenar informações como:
+
+```text
+feedbacks
+├── autor
+├── universidade
+├── categoria
+├── mensagem
+├── anonimo
+├── userId
+└── criadoEm
+```
+
+## 🎯 Objetivos
+
+O projeto tem como principais objetivos:
+
+* Criar um canal digital de comunicação;
+* Facilitar o registro de reclamações e elogios;
+* Permitir manifestações identificadas ou anônimas;
+* Organizar os feedbacks recebidos;
+* Melhorar a comunicação entre usuários e instituição;
+* Desenvolver uma solução web moderna e acessível.
+
+## 📱 Responsividade
+
+A aplicação foi desenvolvida pensando em diferentes dispositivos:
+
+* 💻 Computadores
+* 💻 Notebooks
+* 📱 Smartphones
+* 📲 Tablets
+
+## 🔮 Melhorias Futuras
+
+Possíveis melhorias para o projeto:
+
+* [ ] Painel administrativo
+* [ ] Dashboard de manifestações
+* [ ] Filtros por categoria
+* [ ] Filtros por período
+* [ ] Status das reclamações
+* [ ] Resposta às manifestações
+* [ ] Notificações por e-mail
+* [ ] Relatórios
+* [ ] Gráficos estatísticos
+* [ ] Melhorias de acessibilidade
+* [ ] Melhorias de segurança e regras do Firestore
+
+## 👨‍💻 Desenvolvedor
+
+Desenvolvido por **Eduardo Nunes**.
+
+### 🔗 Links
+
+* **GitHub:** https://github.com/Eduardo91nunes
+* **Repositório:** https://github.com/Eduardo91nunes/AESUNA-BACKUP
+
+---
+
+<p align="center">
+  📢 <strong>AESUNA — Portal de Reclamações e Elogios</strong><br>
+  Tecnologia aproximando usuários e instituição.
+</p>
